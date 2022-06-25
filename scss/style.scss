@@ -1,0 +1,86 @@
+@use "reset";
+@use "variables" as *;
+
+body {
+  font-family: $montserrat;
+  background-color: $cream;
+  font-size: $paragraph;
+}
+
+.product-card {
+  border: 0;
+  border-radius: 13px;
+  max-width: 420px;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+  .product-img {
+    img {
+      border-radius: 13px 13px 0 0;
+    }
+  }
+
+  .product-content {
+    .product-type {
+      letter-spacing: 5px;
+      color: $dark-grayish-blue;
+      font-size: 12px;
+    }
+
+    .product-name {
+      font-family: $fraunces;
+      font-size: 2rem;
+      font-weight: $bold;
+    }
+
+    .product-description {
+      color: $dark-grayish-blue;
+      line-height: 1.5rem;
+    }
+
+    .card-footer {
+      border: 0;
+      .discounted {
+        @extend .product-name;
+        color: $dark-cyan;
+      }
+      .original {
+        font-family: $montserrat;
+        font-weight: $medium;
+        color: $dark-grayish-blue;
+        font-size: $paragraph;
+      }
+
+      .btn-success {
+        background-color: $dark-cyan;
+        border-color: $dark-cyan;
+        font-weight: $bold;
+        font-size: 16px;
+        height: 3rem;
+        border-radius: 8px;
+
+        &:hover {
+          background-color: darken($color: $dark-cyan, $amount: 15);
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 16px;
+  text-align: center;
+
+  a {
+    color: $dark-cyan;
+  }
+}
+
+@include respond-above(md) {
+  .product-card {
+    max-width: 600px;
+    .product-img {
+      img {
+        border-radius: 13px 0 0 13px;
+      }
+    }
+  }
+}
